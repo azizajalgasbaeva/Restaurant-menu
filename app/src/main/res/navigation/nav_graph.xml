@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/tableFragment">
+
+    <fragment
+        android:id="@+id/tableFragment"
+        android:name="texnopos.uz.myproject1.DataMenu.DataTables.TableFragment"
+        android:label="TableFragment"
+        tools:layout="@layout/table_fragment">
+        <action
+            android:id="@+id/action_tableFragment_to_secondFragment"
+            app:destination="@id/secondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="texnopos.uz.myproject1.SecondFragment"
+        android:label="SecondFragment"
+        tools:layout="@layout/second_fragment">
+        <action
+            android:id="@+id/action_secondFragment_to_categoryFragment"
+            app:destination="@id/categoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="texnopos.uz.myproject1.DataMenu.DataCategory.CategoryFragment"
+        android:label="CategoryFragment" >
+        <action
+            android:id="@+id/action_categoryFragment_to_foodFragment"
+            app:destination="@id/foodFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/foodFragment"
+        android:name="texnopos.uz.myproject1.DataMenu.DataFoods.FoodFragment"
+        android:label="FoodFragment" />
+</navigation>
