@@ -7,32 +7,24 @@
 
     <fragment
         android:id="@+id/tableFragment"
-        android:name="texnopos.uz.myproject1.DataMenu.DataTables.TableFragment"
+        android:name="texnopos.uz.myproject1.ui.table.TableFragment"
         android:label="TableFragment"
-        tools:layout="@layout/table_fragment">
+        tools:layout="@layout/fragment_table">
         <action
-            android:id="@+id/action_tableFragment_to_secondFragment"
-            app:destination="@id/secondFragment" />
+            android:id="@+id/action_tableFragment_to_bookingFragment"
+            app:destination="@id/bookingFragment" />
     </fragment>
     <fragment
-        android:id="@+id/secondFragment"
-        android:name="texnopos.uz.myproject1.SecondFragment"
-        android:label="SecondFragment"
-        tools:layout="@layout/second_fragment">
-        <action
-            android:id="@+id/action_secondFragment_to_categoryFragment"
-            app:destination="@id/categoryFragment" />
+        android:id="@+id/bookingFragment"
+        android:name="texnopos.uz.myproject1.ui.booking.BookingFragment"
+        android:label="" >
+        <argumentBookingFragment
+            android:name="tableName"
+            android:defaultValue='""' />
+        <argument
+            android:name="tableName"
+            app:argType="string"
+            android:defaultValue='""' />
     </fragment>
-    <fragment
-        android:id="@+id/categoryFragment"
-        android:name="texnopos.uz.myproject1.DataMenu.DataCategory.CategoryFragment"
-        android:label="CategoryFragment" >
-        <action
-            android:id="@+id/action_categoryFragment_to_foodFragment"
-            app:destination="@id/foodFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/foodFragment"
-        android:name="texnopos.uz.myproject1.DataMenu.DataFoods.FoodFragment"
-        android:label="FoodFragment" />
+
 </navigation>
