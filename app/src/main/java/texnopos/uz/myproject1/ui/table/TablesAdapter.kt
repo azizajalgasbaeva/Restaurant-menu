@@ -20,9 +20,9 @@ class TablesAdapter : RecyclerView.Adapter<TablesAdapter.TablesViewHolder>() {
     inner class TablesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun populateModel(table: Table) {
             itemView.tvtablename.text = table.name
-            itemView.setOnClickListener {
-                onTableItemClicked.invoke(table)
-            }
+           itemView.setOnClickListener {
+               setOnTableItemClicked.invoke(table)
+           }
 
         }
     }
@@ -39,8 +39,9 @@ class TablesAdapter : RecyclerView.Adapter<TablesAdapter.TablesViewHolder>() {
 
     override fun getItemCount() = tables.size
 
-    private var onTableItemClicked: (table: Table) -> Unit = { table -> }
-    fun setOnTableItemClickListener(onItemClicked: (table: Table) -> Unit) {
-        this.onTableItemClicked = onItemClicked
+    private var setOnTableItemClicked : (table: Table) -> Unit={table->}
+
+    fun setOnTableClickListener(setOnTableItemClicked: (table: Table)-> Unit){
+      this.setOnTableItemClicked=setOnTableItemClicked
     }
 }

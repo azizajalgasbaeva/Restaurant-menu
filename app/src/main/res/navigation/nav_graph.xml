@@ -11,20 +11,54 @@
         android:label="TableFragment"
         tools:layout="@layout/fragment_table">
         <action
-            android:id="@+id/action_tableFragment_to_bookingFragment"
-            app:destination="@id/bookingFragment" />
+            android:id="@+id/action_tableFragment_to_closedTable"
+            app:destination="@id/closedTable" />
+        <action
+            android:id="@+id/action_tableFragment_to_openedTable"
+            app:destination="@id/openedTable" />
     </fragment>
     <fragment
-        android:id="@+id/bookingFragment"
-        android:name="texnopos.uz.myproject1.ui.booking.BookingFragment"
-        android:label="" >
-        <argumentBookingFragment
-            android:name="tableName"
-            android:defaultValue='""' />
+        android:id="@+id/openedTable"
+        android:name="texnopos.uz.myproject1.ui.booking.OpenedTable"
+        android:label="OpenedTable"
+        tools:layout="@layout/fragment_opened_table">
         <argument
             android:name="tableName"
-            app:argType="string"
-            android:defaultValue='""' />
+            android:defaultValue='""'
+            app:argType="string" />
+        <action
+            android:id="@+id/action_openedTable_to_categoryFragment"
+            app:destination="@id/categoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/closedTable"
+        android:name="texnopos.uz.myproject1.ui.booking.ClosedTable"
+        android:label="ClosedTable"
+        tools:layout="@layout/fragment_closed_table">
+        <argument
+            android:name="tableName"
+            android:defaultValue='""'
+            app:argType="string" />
+        <action
+            android:id="@+id/action_closedTable_to_categoryFragment"
+            app:destination="@id/categoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="texnopos.uz.myproject1.ui.category.CategoryFragment"
+        android:label="CategoryFragment">
+        <action
+            android:id="@+id/action_categoryFragment_to_foodFragment"
+            app:destination="@id/foodFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/foodFragment"
+        android:name="texnopos.uz.myproject1.ui.food.FoodFragment"
+        android:label="FoodFragment">
+        <argument
+            android:name="categoyId"
+            android:defaultValue="0"
+            app:argType="integer" />
     </fragment>
 
 </navigation>

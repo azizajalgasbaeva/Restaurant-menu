@@ -6,9 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.food_item.view.*
-import kotlinx.android.synthetic.main.fragment_booking.view.*
 import texnopos.uz.myproject1.R
-import texnopos.uz.myproject1.data.models.Category
 import texnopos.uz.myproject1.data.models.Food
 
 class FoodAdapter : RecyclerView.Adapter<FoodAdapter.FoodViewHolder>() {
@@ -53,6 +51,7 @@ class FoodAdapter : RecyclerView.Adapter<FoodAdapter.FoodViewHolder>() {
                     }
                 }
             }
+
         }
     }
 

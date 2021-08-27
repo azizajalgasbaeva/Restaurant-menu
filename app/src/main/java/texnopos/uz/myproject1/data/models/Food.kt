@@ -15,5 +15,5 @@ class Food (
     var imageURL : String,
     var have : Int,
     var categoryId : Int,
-    var count : Int
+    var count : Int?
     )

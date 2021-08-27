@@ -8,11 +8,13 @@ import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.fragment_table.*
 import texnopos.uz.myproject1.R
 import texnopos.uz.myproject1.data.MyDataBase
+import texnopos.uz.myproject1.data.models.Order
 
 class TableFragment : Fragment(R.layout.fragment_table) {
 
     private var tableAdapter = TablesAdapter()
     private lateinit var navController: NavController
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -20,9 +22,19 @@ class TableFragment : Fragment(R.layout.fragment_table) {
         tablesrecyclerview.adapter = tableAdapter
         setData()
 
-        tableAdapter.setOnTableItemClickListener {
-            val action = TableFragmentDirections.actionTableFragmentToBookingFragment(it.name)
-            navController.navigate(action)
+        tableAdapter.setOnTableClickListener {
+            val tableDao = MyDataBase.getInstance(requireActivity()).dao()
+            var orders=tableDao.getAllOrder()
+            for (i in orders){
+                if((i.tableId==it.id && i.status==0)|| orders.size==0){
+                    val action=TableFragmentDirections.actionTableFragmentToClosedTable(it.name)
+                    navController.navigate(action)
+                }
+                else if (i.tableId==it.id && i.status==1){
+                    val action=TableFragmentDirections.actionTableFragmentToClosedTable(it.name)
+                    navController.navigate(action)
+                }
+            }
         }
     }
 

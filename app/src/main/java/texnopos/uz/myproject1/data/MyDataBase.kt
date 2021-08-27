@@ -7,7 +7,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import texnopos.uz.myproject1.data.models.*
 
-@Database(entities = [Table::class, Category::class, Food::class], version = 3)
+@Database(entities = [Table::class, Category::class, Food::class, Order::class, OrderItem::class], version = 3)
 abstract class MyDataBase : RoomDatabase() {
     companion object {
         lateinit var INSTANCE: MyDataBase

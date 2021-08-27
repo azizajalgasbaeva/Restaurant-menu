@@ -9,5 +9,5 @@ class OrderItem(
     var id: Int = 0,
     var foodId: Int,
     var count: Int,
-    var oderId : Int
+    var orderId : Int
 )

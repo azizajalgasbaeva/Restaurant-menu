@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Query
 import texnopos.uz.myproject1.data.models.Category
 import texnopos.uz.myproject1.data.models.Food
+import texnopos.uz.myproject1.data.models.Order
 import texnopos.uz.myproject1.data.models.Table
 
 @Dao
@@ -15,6 +16,8 @@ interface MyDao {
     fun getAllCategory(): List<Category>
 
     @Query("SELECT * FROM Foods WHERE categoryId = :id ")
-    fun getFoods(id : Int) : List<Food>
+    fun getFoods(id: Int): List<Food>
 
+    @Query("SELECT* FROM `order`")
+    fun getAllOrder(): List<Order>
 }
