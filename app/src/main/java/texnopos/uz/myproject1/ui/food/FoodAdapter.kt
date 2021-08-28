@@ -37,9 +37,11 @@ class FoodAdapter : RecyclerView.Adapter<FoodAdapter.FoodViewHolder>() {
                 if (itemView.tvcount.text.isNotEmpty()) {
                     count++
                     itemView.tvcount.text = count.toString()
+                    removeFood.invoke(food)
                 } else {
                     count = 1
                     itemView.tvcount.text = count.toString()
+                    addFood.invoke(food)
                 }
             }
             itemView.removeButton.setOnClickListener {
@@ -47,7 +49,7 @@ class FoodAdapter : RecyclerView.Adapter<FoodAdapter.FoodViewHolder>() {
                     if (count > 0) {
                         count--
                         itemView.tvcount.text = count.toString()
-
+                        removeFood.invoke(food)
                     }
                 }
             }
@@ -67,4 +69,13 @@ class FoodAdapter : RecyclerView.Adapter<FoodAdapter.FoodViewHolder>() {
 
     override fun getItemCount() = foods.size
 
+    private var addFood: (food: Food) -> Unit = {}
+    fun addingFood(addFood: (food: Food) -> Unit) {
+        this.addFood = addFood
+    }
+
+    private var removeFood: (food: Food) -> Unit = {}
+    fun removingFood(removeFood: (food: Food) -> Unit) {
+        this.removeFood = removeFood
+    }
 }

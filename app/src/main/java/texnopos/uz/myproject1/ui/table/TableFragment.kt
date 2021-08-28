@@ -17,7 +17,6 @@ class TableFragment : Fragment(R.layout.fragment_table) {
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
         tablesrecyclerview.adapter = tableAdapter
         setData()
@@ -26,7 +25,7 @@ class TableFragment : Fragment(R.layout.fragment_table) {
             val tableDao = MyDataBase.getInstance(requireActivity()).dao()
             var orders=tableDao.getAllOrder()
             for (i in orders){
-                if((i.tableId==it.id && i.status==0)|| orders.size==0){
+                if((i.tableId==it.id && i.status==0)|| orders.isEmpty()){
                     val action=TableFragmentDirections.actionTableFragmentToClosedTable(it.name)
                     navController.navigate(action)
                 }
@@ -34,6 +33,7 @@ class TableFragment : Fragment(R.layout.fragment_table) {
                     val action=TableFragmentDirections.actionTableFragmentToClosedTable(it.name)
                     navController.navigate(action)
                 }
+
             }
         }
     }

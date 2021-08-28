@@ -4,7 +4,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class BasketAdepter : RecyclerView.Adapter<BasketAdepter.BasketViewHolder>() {
+class BasketAdapter : RecyclerView.Adapter<BasketAdapter.BasketViewHolder>() {
     inner class BasketViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
         fun populateModel(){
 
